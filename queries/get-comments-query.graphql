@@ -1,6 +1,6 @@
 query FetchReviewComments($owner: String!, $repository: String!, $state: PullRequestState!) {
     repository(owner: $owner, name: $repository) {
-      pullRequests(last: 30, states: [$state]) {
+      pullRequests(last: 49, states: [$state]) {
         edges {
           node {
             url

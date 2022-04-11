@@ -37,7 +37,20 @@ function Main() {
             r => r.json()
         ).then(
             data => {
-                const pullRequests = data.data.repository.pullRequests.edges;
+                const pullRequests = data.data.repository.pullRequests.edges.map(
+                    pullRequest => ({
+                        node: {
+                            ...pullRequest.node,
+                            reviewThreads: {
+                                edges: pullRequest.node.reviewThreads.edges.filter(
+                                    reviewThread => reviewThread.node.isResolved === false
+                                )
+                            }
+                        }
+                    })
+                ).filter(
+                    pullRequests => pullRequests.node.reviewThreads.edges.length >= 1
+                );
                 pullRequests.reverse();
                 localStorage.setItem('cachedData', JSON.stringify(pullRequests));
                 setPullRequests(pullRequests);

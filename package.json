@@ -2,9 +2,10 @@
   "name": "unresolved-comments-finder",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "rm -rf dist && parcel build ./*.html --public-url \"https://mousetail.github.io/unresolved\"",
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
@@ -12,6 +13,7 @@
     "@parcel/transformer-graphql": "^2.4.1",
     "@types/react": "^18.0.1",
     "@types/react-dom": "^18.0.0",
+    "gh-pages": "^3.2.3",
     "lodash": "^4.17.21",
     "parcel": "^2.4.1",
     "queries": "^0.1.0",

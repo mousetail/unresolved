@@ -1,0 +1,16 @@
+{
+  "name": "Relay GraphQL Schema",
+  "schemaPath": "relay-schema.graphql",
+  "includes": ["queries/**"],
+  "extensions": {
+    "endpoints": {
+      "Github": {
+        "url": "https://api.github.com/graphql",
+        "headers": {
+          "user-agent": "JS GraphQL",
+        },
+        "introspect": true
+      }
+    }
+  }
+}

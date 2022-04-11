@@ -1,0 +1,47 @@
+.comment {
+    display: flex;
+    width: calc(100% - 4rem);
+    align-items: center;
+    margin-left: 4rem;
+}
+
+.comment p {
+    display: block;
+    flex-grow: 1;
+    gap: 0.25rem;
+}
+
+.comment .author {
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pull-request {
+    display: flex;
+    align-items: center;
+}
+
+.comment .author img, .pull-request img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 2rem;
+    flex-shrink: 0;
+}
+
+.comment a {
+    background-color: green;
+    padding: 0.25rem;
+    color: white;
+    border-radius: 0.25rem;
+    margin: 0.25rem;
+    text-decoration: none;
+    width: 10rem;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.comment a:hover {
+    background-color: red;
+}

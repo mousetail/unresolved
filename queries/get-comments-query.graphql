@@ -1,0 +1,40 @@
+query FetchReviewComments($owner: String!, $repository: String!, $state: PullRequestState!) {
+    repository(owner: $owner, name: $repository) {
+      pullRequests(last: 30, states: [$state]) {
+        edges {
+          node {
+            url
+            title
+            reviewDecision
+            createdAt
+            state
+            author {
+              login
+              avatarUrl
+            }
+            reviewThreads(first: 100) {
+              edges {
+                node {
+                  id,
+                  isResolved
+                  isOutdated
+                  isCollapsed
+                  comments(first: 100) {
+                    totalCount
+                    nodes {
+                      author {
+                        login
+                        avatarUrl
+                      }
+                      body
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

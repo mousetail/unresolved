@@ -1062,7 +1062,7 @@ function Main() {
     return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
         children: [
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h1", {
-                children: "Main"
+                children: "Unresolved Comments Checker"
             }, void 0, false, {
                 fileName: "scripts/index.tsx",
                 lineNumber: 62,
@@ -1168,16 +1168,17 @@ function Main() {
             pullRequests1.filter((pr)=>pr.node.reviewThreads.edges.length >= 1
             ).map((pr)=>{
                 return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                    className: "pull-request",
                     children: [
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                            className: "pull-request",
+                            className: "pull-request-heading",
                             children: [
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("img", {
                                     src: pr.node.author.avatarUrl
                                 }, void 0, false, {
                                     fileName: "scripts/index.tsx",
                                     lineNumber: 96,
-                                    columnNumber: 29
+                                    columnNumber: 33
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                                     children: [
@@ -1186,31 +1187,31 @@ function Main() {
                                         }, void 0, false, {
                                             fileName: "scripts/index.tsx",
                                             lineNumber: 98,
-                                            columnNumber: 33
+                                            columnNumber: 37
                                         }, this),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                                             children: [
                                                 "Opened by ",
                                                 pr.node.author.login,
-                                                " At ",
-                                                pr.node.createdAt
+                                                " at ",
+                                                new Date(pr.node.createdAt).toDateString()
                                             ]
                                         }, void 0, true, {
                                             fileName: "scripts/index.tsx",
                                             lineNumber: 99,
-                                            columnNumber: 33
+                                            columnNumber: 37
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "scripts/index.tsx",
                                     lineNumber: 97,
-                                    columnNumber: 29
+                                    columnNumber: 33
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "scripts/index.tsx",
                             lineNumber: 95,
-                            columnNumber: 25
+                            columnNumber: 29
                         }, this),
                         pr.node.reviewThreads.edges.map((thread)=>{
                             const comment = thread.node.comments.nodes[0];
@@ -1241,7 +1242,7 @@ function Main() {
                                         columnNumber: 37
                                     }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
-                                        children: JSON.stringify(comment.body)
+                                        children: comment.body
                                     }, void 0, false, {
                                         fileName: "scripts/index.tsx",
                                         lineNumber: 110,
@@ -39634,7 +39635,7 @@ function registerExportsForReactRefresh(module) {
 }
 
 },{"react-refresh/runtime":"786KC"}],"b08tK":[function(require,module,exports) {
-module.exports = "query FetchReviewComments($owner: String!, $repository: String!, $state: PullRequestState!) {\n  repository(owner: $owner, name: $repository) {\n    pullRequests(last: 49, states: [$state]) {\n      edges {\n        node {\n          url\n          title\n          reviewDecision\n          createdAt\n          state\n          author {\n            login\n            avatarUrl\n          }\n          reviewThreads(first: 100) {\n            edges {\n              node {\n                id\n                isResolved\n                isOutdated\n                isCollapsed\n                comments(first: 100) {\n                  totalCount\n                  nodes {\n                    author {\n                      login\n                      avatarUrl\n                    }\n                    body\n                    url\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n";
+module.exports = "query FetchReviewComments($owner: String!, $repository: String!, $state: PullRequestState!) {\n  repository(owner: $owner, name: $repository) {\n    pullRequests(last: 100, states: [$state]) {\n      edges {\n        node {\n          url\n          title\n          reviewDecision\n          createdAt\n          state\n          author {\n            login\n            avatarUrl\n          }\n          reviewThreads(first: 10) {\n            edges {\n              node {\n                id\n                isResolved\n                isOutdated\n                isCollapsed\n                comments(first: 1) {\n                  totalCount\n                  nodes {\n                    author {\n                      login\n                      avatarUrl\n                    }\n                    body\n                    url\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n";
 
 },{}]},["kn9T2","jMeLQ","1Jp8x"], "1Jp8x", "parcelRequirec5fa")
 

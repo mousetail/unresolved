@@ -7,7 +7,7 @@
       "Github": {
         "url": "https://api.github.com/graphql",
         "headers": {
-          "user-agent": "JS GraphQL",
+          "user-agent": "JS GraphQL"
         },
         "introspect": true
       }

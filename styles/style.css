@@ -1,3 +1,11 @@
+body {
+    font-family: sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 .comment {
     display: flex;
     width: calc(100% - 4rem);
@@ -19,8 +27,24 @@
 }
 
 .pull-request {
+    margin: 1rem;
+    box-shadow: lightgray 0 0 5px 5px;
+    padding: 1rem;
+}
+
+.pull-request-heading {
     display: flex;
     align-items: center;
+    margin-bottom: 1rem;
+}
+
+.pull-request img {
+    margin-right: 1rem;
+}
+
+.pull-request h2 {
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 .comment .author img, .pull-request img {
@@ -44,4 +68,21 @@
 
 .comment a:hover {
     background-color: red;
+}
+
+label {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+label input, label select {
+    width: 75%
+}
+
+input, select {
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 0.5rem;
+    background-color: transparent;
 }

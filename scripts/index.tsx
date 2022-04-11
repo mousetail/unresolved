@@ -59,7 +59,7 @@ function Main() {
     }, 300), [authorizationToken, pullRequestState, repository, author])
 
     return <div>
-        <h1>Main</h1>
+        <h1>Unresolved Comments Checker</h1>
 
         <label>
             API Key:
@@ -91,14 +91,14 @@ function Main() {
                 pr => pr.node.reviewThreads.edges.length >= 1
             ).map(
                 (pr) => {
-                    return <div>
-                        <div className={"pull-request"}>
-                            <img src={pr.node.author.avatarUrl}/>
-                            <div>
-                                <h2>{pr.node.title}</h2>
-                                <div>Opened by {pr.node.author.login} At {pr.node.createdAt}</div>
+                    return <div className={"pull-request"}>
+                            <div className={"pull-request-heading"}>
+                                <img src={pr.node.author.avatarUrl}/>
+                                <div>
+                                    <h2>{pr.node.title}</h2>
+                                    <div>Opened by {pr.node.author.login} at {new Date(pr.node.createdAt).toDateString()}</div>
+                                </div>
                             </div>
-                        </div>
                         {
                             pr.node.reviewThreads.edges.map(thread => {
                                 const comment = thread.node.comments.nodes[0]
@@ -108,13 +108,13 @@ function Main() {
                                         <b>{comment.author.login}</b>
                                     </div>
                                     <p>
-                                        {JSON.stringify(comment.body)}
+                                        {comment.body}
                                     </p>
                                     <a href={comment.url} target={"_blank"}>Link</a>
                                 </div>
                             })
                         }
-                    </div>
+                        </div>
                 }
             )
         }

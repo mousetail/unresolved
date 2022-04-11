@@ -1,6 +1,6 @@
 query FetchReviewComments($owner: String!, $repository: String!, $state: PullRequestState!) {
     repository(owner: $owner, name: $repository) {
-      pullRequests(last: 49, states: [$state]) {
+      pullRequests(last: 100, states: [$state]) {
         edges {
           node {
             url
@@ -12,14 +12,14 @@ query FetchReviewComments($owner: String!, $repository: String!, $state: PullReq
               login
               avatarUrl
             }
-            reviewThreads(first: 100) {
+            reviewThreads(first: 10) {
               edges {
                 node {
                   id,
                   isResolved
                   isOutdated
                   isCollapsed
-                  comments(first: 100) {
+                  comments(first: 1) {
                     totalCount
                     nodes {
                       author {

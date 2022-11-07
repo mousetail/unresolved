@@ -14,8 +14,8 @@ function useLocalStorage(storageKey: string, defaultValue: string): [string, (st
 
 function Main() {
     const [authorizationToken, setAuthorizationToken] = useLocalStorage('apiKey', '')
-    const [repository, setRepository] = useLocalStorage('repository', 'katan')
-    const [author, setAuthor] = useLocalStorage('author', 'colonistio')
+    const [repository, setRepository] = useLocalStorage('repository', '')
+    const [author, setAuthor] = useLocalStorage('author', '')
     const [pullRequests, setPullRequests] = useState([])
     const [pullRequestState, setPullRequestState ] = useLocalStorage("pullRequestState", "MERGED")
 
